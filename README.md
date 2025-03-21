@@ -1,80 +1,75 @@
-# Lead-Generation-Tool
+Lead Generation Scraper with ML-based Spam Detection
 
-Lead Generation Scraper with ML-Based Spam Detection
+Overview
 
-1. Introduction
+This project extracts emails and phone numbers from a given webpage and classifies emails as spam or valid using a Machine Learning (ML) model. The model is trained on extracted data or fallback training data.
 
-This project extracts email addresses and phone numbers from web pages and classifies emails as spam or valid using a machine learning model. The goal is to automate lead generation while filtering out spam contacts.
+Features
 
-2. Approach
+Web scraping using Selenium and BeautifulSoup
 
-Web Scraping: Selenium fetches the webpage content.
+Email and phone number extraction using regex
 
-Regex Matching: Extracts emails and phone numbers using predefined regex patterns.
+Spam detection using Logistic Regression
 
-Machine Learning Model:
+Data storage in CSV format
 
-Feature: Extracted email domain.
+Installation
 
-Model: Logistic Regression trained on labeled email domains.
+Prerequisites
 
-Preprocessing: Used CountVectorizer to convert email domains into numerical features.
+Ensure you have Python 3 installed. Install the required dependencies:
 
-3. Model Selection & Rationale
+pip install -r requirements.txt
 
-Why Logistic Regression?
+Dependencies
 
-Simple, efficient, and interpretable for binary classification (Spam vs. Valid).
+selenium
 
-Works well with small datasets.
+webdriver_manager
 
-Alternatives Considered:
+beautifulsoup4
 
-Random Forest (higher accuracy but less interpretable).
+pandas
 
-Deep Learning (overkill for small datasets).
+scikit-learn
 
-4. Performance Evaluation
+Usage
 
-Accuracy: ~80% on a small dataset.
+Scrape and classify contacts
 
-Limitations:
+python scraper.py --url "https://example.com/contact"
 
-Relies only on email domains; does not analyze content.
+Train model with additional data
 
-Small training dataset may lead to biased results.
+python scraper.py --url "https://example.com/contact" --training-url "https://example.com/training"
 
-5. Future Improvements
+Output
 
-Collect a larger dataset for better spam detection.
+Extracted contacts are saved in leads.csv with classification labels.
 
-Use NLP techniques for email content analysis.
+Report
 
-Implement an API for real-time classification.
+Approach
 
-Expand features (e.g., frequency of email domain occurrences, blacklist matching).
+The system scrapes emails and phone numbers from webpages and applies spam classification using a trained machine learning model. If an external training dataset is unavailable, fallback data is used.
 
-# Lead Generation Scraper
+Model Selection
 
-A tool to scrape company details (name, address) and contacts (emails, phone numbers) from a URL, outputting results in CSV format. Built for the Caprae Capital AI-Readiness Pre-Screening Challenge.
+We used Logistic Regression due to its efficiency in binary classification and ability to generalize well to unseen data.
 
-## Setup Instructions
+Data Preprocessing
 
-1. **Install Dependencies**:
-   ```bash
-   pip install requests beautifulsoup4
-   pip install selenium
-   pip install webdriver-manager
+Emails are converted to lowercase
 
+Domains are extracted as features for classification
 
-To run the script
-python lead_scraper.py --url <target_url>
+Missing values are handled appropriately
 
-# you can do this in another way
-# Install dependencies
-!pip install requests beautifulsoup4
+Performance Evaluation
 
-# Run the scraper
-!python lead_scraper.py --url https://getcohesiveai.com/scraper
+The model was trained using CountVectorizer + Logistic Regression and evaluated using a train-test split (80-20). Accuracy and precision-recall metrics were considered to assess performance.
 
+Rationale
 
+Logistic Regression provides a balance between interpretability and performance, making it a suitable choice for spam detection based on email domains.
