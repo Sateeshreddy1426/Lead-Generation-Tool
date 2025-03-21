@@ -38,11 +38,11 @@ Usage
 
 Scrape and classify contacts
 
-python scraper.py --url "https://example.com/contact"
+python scrap1.py --url "https://support.nationalgeographic.org/s/contactsupport"
 
 Train model with additional data
 
-python scraper.py --url "https://example.com/contact" --training-url "https://example.com/training"
+python scrap1.py --url "https://support.nationalgeographic.org/s/contactsupport" --training-url "https://support.nationalgeographic.org/s/contactsupport"
 
 Output
 
