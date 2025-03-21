@@ -1,5 +1,23 @@
 # Lead-Generation-Tool
 
+Lead Generation Scraper
+
+Overview
+
+This project is a web scraping tool designed to extract business leads from websites. It collects company details such as names, emails, phone numbers, and addresses from a given URL. The extracted data can be used for lead generation and business outreach.
+
+Features
+
+Scrapes company details from a given webpage
+
+Extracts emails, phone numbers, and addresses using regex
+
+Filters and removes duplicate entries
+
+Saves extracted data into structured formats
+
+Can be extended for CRM integration or automation
+
 # Lead Generation Scraper
 
 A tool to scrape company details (name, address) and contacts (emails, phone numbers) from a URL, outputting results in CSV format. Built for the Caprae Capital AI-Readiness Pre-Screening Challenge.
