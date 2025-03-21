@@ -1,22 +1,58 @@
 # Lead-Generation-Tool
 
-Lead Generation Scraper
+Lead Generation Scraper with ML-Based Spam Detection
 
-Overview
+1. Introduction
 
-This project is a web scraping tool designed to extract business leads from websites. It collects company details such as names, emails, phone numbers, and addresses from a given URL. The extracted data can be used for lead generation and business outreach.
+This project extracts email addresses and phone numbers from web pages and classifies emails as spam or valid using a machine learning model. The goal is to automate lead generation while filtering out spam contacts.
 
-Features
+2. Approach
 
-Scrapes company details from a given webpage
+Web Scraping: Selenium fetches the webpage content.
 
-Extracts emails, phone numbers, and addresses using regex
+Regex Matching: Extracts emails and phone numbers using predefined regex patterns.
 
-Filters and removes duplicate entries
+Machine Learning Model:
 
-Saves extracted data into structured formats
+Feature: Extracted email domain.
 
-Can be extended for CRM integration or automation
+Model: Logistic Regression trained on labeled email domains.
+
+Preprocessing: Used CountVectorizer to convert email domains into numerical features.
+
+3. Model Selection & Rationale
+
+Why Logistic Regression?
+
+Simple, efficient, and interpretable for binary classification (Spam vs. Valid).
+
+Works well with small datasets.
+
+Alternatives Considered:
+
+Random Forest (higher accuracy but less interpretable).
+
+Deep Learning (overkill for small datasets).
+
+4. Performance Evaluation
+
+Accuracy: ~80% on a small dataset.
+
+Limitations:
+
+Relies only on email domains; does not analyze content.
+
+Small training dataset may lead to biased results.
+
+5. Future Improvements
+
+Collect a larger dataset for better spam detection.
+
+Use NLP techniques for email content analysis.
+
+Implement an API for real-time classification.
+
+Expand features (e.g., frequency of email domain occurrences, blacklist matching).
 
 # Lead Generation Scraper
 
@@ -41,7 +77,4 @@ python lead_scraper.py --url <target_url>
 # Run the scraper
 !python lead_scraper.py --url https://getcohesiveai.com/scraper
 
-# Display output
-import pandas as pd
-df = pd.read_csv("leads.csv")
-df
+
