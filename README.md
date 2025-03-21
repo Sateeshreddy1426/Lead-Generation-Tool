@@ -18,7 +18,7 @@ python lead_scraper.py --url <target_url>
 !pip install requests beautifulsoup4
 
 # Run the scraper
-!python lead_scraper.py --url https://www.python.org/about/
+!python lead_scraper.py --url https://getcohesiveai.com/scraper
 
 # Display output
 import pandas as pd
