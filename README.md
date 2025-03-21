@@ -27,6 +27,9 @@ A tool to scrape company details (name, address) and contacts (emails, phone num
 1. **Install Dependencies**:
    ```bash
    pip install requests beautifulsoup4
+   pip install selenium
+   pip install webdriver-manager
+
 
 To run the script
 python lead_scraper.py --url <target_url>
