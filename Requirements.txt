@@ -1,0 +1,9 @@
+selenium
+
+webdriver_manager
+
+beautifulsoup4
+
+pandas
+
+scikit-learn
